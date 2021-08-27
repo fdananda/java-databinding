@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.fdananda.gitdatabinding.MainActivityViewModel" />
+        <variable
+            name="user"
+            type="com.fdananda.gitdatabinding.User" />
+        <variable
+            name="viewModel"
+            type="MainActivityViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.firstName+ '\u0020' + user.lastName, default = my_default}"
+            android:visibility="@{user.loggedIn ? View.VISIBLE : View.GONE}" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:text="@{viewModel.mMessage}" />
+
+        <EditText
+            android:id="@+id/edittext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="375dp"
+            android:background="@color/design_default_color_on_secondary"
+            android:ems="10"
+            android:hint="Digite aqui"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+    </LinearLayout>
+
+</layout>
