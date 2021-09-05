@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
         <import type="android.view.View" />
@@ -19,17 +20,29 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- Aula 1 -->
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:text="@{user.firstName+ '\u0020' + user.lastName, default = my_default}"
             android:visibility="@{user.loggedIn ? View.VISIBLE : View.GONE}" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <!-- Aula 2 -->
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="12dp"
             android:gravity="center_vertical"
             android:text="@{viewModel.mMessage}" />
@@ -38,7 +51,7 @@
             android:id="@+id/edittext"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="375dp"
+            android:layout_marginBottom="50dp"
             android:background="@color/design_default_color_on_secondary"
             android:ems="10"
             android:hint="Digite aqui"
@@ -46,6 +59,21 @@
             android:padding="5dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
+
+        <!-- Aula 4-->
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
+        <include
+            layout="@layout/content_layout"
+            android:layout_marginTop="10dp"
+            bind:myUser="@{user}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
